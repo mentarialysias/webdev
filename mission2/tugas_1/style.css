@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+body {
+    overflow: auto;
+    padding: 0;
+    text-align: center;
+    font-family: 'Libre Baskerville', serif, Sans-Serif;
+}
+
+header {
+    display: inline;
+}
+
+.jumbotron {
+    font-size: 20px;
+    padding: 50px;
+    background-image: url('assets/jumbotron.png');
+    text-align: center;
+    color: white;
+}
+
+.sambutan {
+    background-image: url('assets/jumbotron.png');
+    padding: 5px;
+    top: 0;
+    position: sticky;
+    z-index: 2;
+    color: white;
+}
+
+main {
+    padding: 20px;
+    overflow: auto;
+    text-align: justify;
+    background-color: #152642;
+}
+
+
+#content {
+    float: left;
+    width: 60%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 0 0 5px 1px white;
+    min-width: 500px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item img {
+    width: 100px;
+    height: auto;
+    margin-top: 15px;
+    padding: 2px;
+}
+
+.item-name {
+    font-size: 20px;
+}
+
+.item-price {
+    color: #777;
+    font-size: 16px;
+}
+
+.container3 {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+
+}
+
+
+.keterangan {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.section3 {
+    box-sizing: border-box;
+    border-radius: 20px;
+    text-align: center;
+    transition: max-width 0.5s;
+    border: 2px solid #7eafff;
+    margin: 2px;
+    min-width: 200px;
+    box-shadow: 0 0 10px 1px rgb(0, 0, 0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.tombol {
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+}
+
+
+.tombol span {
+    font-size: 24px;
+    margin: 0 10px;
+    width: 50px;
+    text-align: center;
+    border-radius: 5px;
+
+}
+
+
+.tombol button {
+    background-color: #0062ff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    align-items: center;
+    text-align: center;
+}
+
+.tombol button:hover {
+    background-color: #00ff11;
+    color: black;
+    transition: 0.3s;
+}
+
+
+
+
+.tombol .masukKeranjang {
+    margin-top: 10px;
+    background-color: #00ff11;
+}
+
+
+aside {
+    float: right;
+    width: 40%;
+    padding-left: 10px;
+}
+
+.total {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.remove-item {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    #content,
+    aside {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+
+footer {
+    text-align: center;
+    background-image: url('assets/jumbotron.png');
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+
