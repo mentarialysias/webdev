@@ -54,19 +54,26 @@ function updateCart() {
 
         const removeButton = itemElement.querySelector('.remove-item');
         removeButton.addEventListener('click', () => {
-            const index = cart.indexOf(item);
-            if (index !== -1) {
-                cart.splice(index, 1);
-                updateCart();
+            const shouldRemove = window.confirm(`Apakah Anda yakin ingin menghapus "${item.name}" dari keranjang?`);
+        
+            if (shouldRemove) {
+                const index = cart.indexOf(item);
+                if (index !== -1) {
+                    cart.splice(index, 1);
+                    updateCart();
+                }
             }
         });
+        
+
+
     }
 
     totalContainer.innerHTML = `
         <pre>Total Pembelian                  Rp ${total.toLocaleString()}
         <pre>Pajak 11%                  Rp ${(total * 0.11).toLocaleString()}
         <pre>Total Bayar                  Rp ${(total * 1.11).toLocaleString()}
-    `;
+        `;
 }
 
 for (const item of items) {
@@ -131,11 +138,92 @@ for (const item of items) {
             masukKeranjangButton.disabled = false;
             masukKeranjangButton.textContent = 'Add to Cart';
         }, 1000);
-
-        alert(`"${item.name}" has been added to your cart!`);
     });
 
     itemsContainer.appendChild(itemElement);
 }
 
 updateCart();
+
+const printReceiptButton = document.querySelector('.print-receipt');
+
+printReceiptButton.addEventListener('click', () => {
+    const receiptWindow = window.open('', 'Receipt', 'width=300,height=400');
+    
+    if (receiptWindow) {
+        const receiptContent = generateReceiptContent();
+        receiptWindow.document.write(receiptContent);
+        receiptWindow.document.close();
+    } else {
+        alert('Mohon izinkan pop-up untuk mencetak struk.');
+    }
+});
+
+function generateReceiptContent() {
+    let receiptContent = `
+        <html>
+        <head>
+            <title>Struk Belanja</title>
+            <style>
+                /* Gaya CSS untuk tampilan struk */
+                /* Anda dapat menyesuaikan gaya sesuai keinginan Anda */
+                body {
+                    font-family: Arial, sans-serif;
+                }
+                .receipt {
+                    text-align: center;
+                }
+                .receipt-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                .receipt-details {
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                }
+                .receipt-item {
+                    text-align: left;
+                    margin-bottom: 5px;
+                }
+                .receipt-total {
+                    font-weight: bold;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="receipt">
+                <div class="receipt-title">Struk Belanja</div>
+                <div class="receipt-details">
+    `;
+
+    for (const item of cart) {
+        receiptContent += `
+            <div class="receipt-item">
+                ${item.name} x ${item.quantity}: Rp ${(item.price * item.quantity).toLocaleString()}
+            </div>
+        `;
+    }
+
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const tax = total * 0.11;
+    const totalPayment = total + tax;
+
+    receiptContent += `
+                
+                </div>
+                <div class="receipt-item">
+                    Total Belanja: Rp ${total.toLocaleString()}
+                </div>
+                <div class="receipt-item">
+                    Pajak 11%: Rp ${tax.toLocaleString()}
+                </div>
+                <div class="receipt-item">
+                    Total Bayar: Rp ${totalPayment.toLocaleString()}
+                </div>
+            </div>
+        </body>
+        </html>
+    `;
+
+    return receiptContent;
+}
