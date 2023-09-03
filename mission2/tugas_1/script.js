@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 const items = [
     { image: 'assets/nasgor.jpe', name: 'Nasi Goreng', price: 15000 },
     { image: 'assets/migor.jpg', name: 'Mie Goreng', price: 10000 },
@@ -184,9 +172,6 @@ function generateReceiptContent() {
                 .receipt-item {
                     text-align: left;
                     margin-bottom: 5px;
-                }
-                .receipt-total {
-                    font-weight: bold;
                 }
             </style>
         </head>
