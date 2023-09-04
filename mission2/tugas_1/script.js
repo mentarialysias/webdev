@@ -43,7 +43,7 @@ function updateCart() {
         const removeButton = itemElement.querySelector('.remove-item');
         removeButton.addEventListener('click', () => {
             const shouldRemove = window.confirm(`Apakah Anda yakin ingin menghapus "${item.name}" dari keranjang?`);
-        
+
             if (shouldRemove) {
                 const index = cart.indexOf(item);
                 if (index !== -1) {
@@ -52,7 +52,7 @@ function updateCart() {
                 }
             }
         });
-        
+
 
 
     }
@@ -137,7 +137,7 @@ const printReceiptButton = document.querySelector('.print-receipt');
 
 printReceiptButton.addEventListener('click', () => {
     const receiptWindow = window.open('', 'Receipt', 'width=300,height=400');
-    
+
     if (receiptWindow) {
         const receiptContent = generateReceiptContent();
         receiptWindow.document.write(receiptContent);

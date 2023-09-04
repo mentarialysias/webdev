@@ -89,7 +89,8 @@ main {
 
 .items {
     display: flex;
-    flex-wrap: wrap; /* Ini memungkinkan item untuk melompat ke baris berikutnya jika tidak cukup ruang dalam satu baris */
+    flex-wrap: wrap;
+    /* Ini memungkinkan item untuk melompat ke baris berikutnya jika tidak cukup ruang dalam satu baris */
     align-items: center;
     gap: 20px;
     margin-left: auto;
@@ -100,6 +101,7 @@ main {
     text-align: left;
     margin-left: 20px;
 }
+
 .tombol {
     align-items: center;
     text-align: center;
@@ -198,4 +200,3 @@ footer {
     color: white;
     font-weight: bold;
 }
-
