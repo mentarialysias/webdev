@@ -21,7 +21,7 @@ let object = {
 //hambatan
 let hambatanArray = [];
 
-let hambatan1Width = 34;
+let hambatan1Width = 70;
 let hambatan2Width = 69;
 let hambatan3Width = 102;
 
